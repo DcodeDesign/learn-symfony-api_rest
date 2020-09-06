@@ -1,0 +1,51 @@
+<?php //App_Entity_Article
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
+        clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\Article',
+                'id',
+                'title',
+                'slug',
+                'content',
+                'picture',
+                'isPublished',
+                'published_At',
+                'updated_at',
+                'publishedAt',
+                'updatedAt',
+            ],
+            'attributesMetadata' => [
+                [
+                    'id' => $o[1],
+                    'title' => $o[2],
+                    'slug' => $o[3],
+                    'content' => $o[4],
+                    'picture' => $o[5],
+                    'isPublished' => $o[6],
+                    'published_At' => $o[7],
+                    'updated_at' => $o[8],
+                    'publishedAt' => $o[9],
+                    'updatedAt' => $o[10],
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];
