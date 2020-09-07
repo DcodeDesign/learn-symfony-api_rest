@@ -8,7 +8,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
-use DateTime;
 
 /**
  * @ApiResource(
@@ -92,8 +91,8 @@ class Article
     private $comments;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="articles")
-     *
+     * @ORM\ManyToMany(targetEntity=Tag::class, inversedBy="articles", cascade="persist")
+     * 
      * @Groups({"article:read", "article:write"})
      */
     private $tags;
@@ -103,6 +102,7 @@ class Article
         $this->isPublished = false;
         $this->createdAt = new \DateTime();
         $this->comments = new ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -237,14 +237,28 @@ class Article
         return $this;
     }
 
-    public function getTags(): ?string
+    /**
+     * @return Collection|Tag[]
+     */
+    public function getTags(): Collection
     {
         return $this->tags;
     }
 
-    public function setTags(string $tags): self
+    public function addTag(Tag $tag): self
     {
-        $this->tags = $tags;
+        if (!$this->tags->contains($tag)) {
+            $this->tags[] = $tag;
+        }
+
+        return $this;
+    }
+
+    public function removeTag(Tag $tag): self
+    {
+        if ($this->tags->contains($tag)) {
+            $this->tags->removeElement($tag);
+        }
 
         return $this;
     }

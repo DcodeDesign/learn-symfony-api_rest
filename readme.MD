@@ -142,3 +142,5 @@ php bin/console make:entity
 Ressources :
 
 > https://www.kaherecode.com/tutorial/developper-une-api-rest-avec-symfony-et-api-platform
+
+> https://www.kaherecode.com/tutorial/developper-une-api-rest-avec-symfony-et-api-platform-les-relations-entre-entites

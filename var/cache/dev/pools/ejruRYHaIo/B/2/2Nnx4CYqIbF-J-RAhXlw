@@ -12,12 +12,12 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 [
                     'normalization_context' => [
                         'groups' => [
-                            'tag:read',
+                            'article:read',
                         ],
                     ],
                     'denormalization_context' => [
                         'groups' => [
-                            'tag:write',
+                            'article:write',
                         ],
                     ],
                 ],
