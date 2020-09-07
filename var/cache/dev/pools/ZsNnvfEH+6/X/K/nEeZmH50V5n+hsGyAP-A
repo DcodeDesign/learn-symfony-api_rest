@@ -176,6 +176,16 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             ],
             'attributes' => [
                 [
+                    'normalization_context' => [
+                        'groups' => [
+                            'article:read',
+                        ],
+                    ],
+                    'denormalization_context' => [
+                        'groups' => [
+                            'article:write',
+                        ],
+                    ],
                     'input' => null,
                     'output' => null,
                 ],

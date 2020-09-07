@@ -9,6 +9,8 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
         'ApiPlatform\\Core\\Metadata\\Resource\\ResourceNameCollection' => [
             'classes' => [
                 [
+                    'App\\Entity\\Tag',
+                    'App\\Entity\\Comment',
                     'App\\Entity\\Article',
                 ],
             ],

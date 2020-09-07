@@ -13,6 +13,9 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
     ],
     null,
     [
@@ -27,6 +30,9 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 'isPublished',
                 'published_At',
                 'updated_at',
+                'createdAt',
+                'comments',
+                'tags',
                 'publishedAt',
                 'updatedAt',
             ],
@@ -40,8 +46,50 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                     'isPublished' => $o[6],
                     'published_At' => $o[7],
                     'updated_at' => $o[8],
-                    'publishedAt' => $o[9],
-                    'updatedAt' => $o[10],
+                    'createdAt' => $o[9],
+                    'comments' => $o[10],
+                    'tags' => $o[11],
+                    'publishedAt' => $o[12],
+                    'updatedAt' => $o[13],
+                ],
+            ],
+            'groups' => [
+                1 => [
+                    'article:read',
+                ],
+                [
+                    'article:read',
+                    'article:write',
+                ],
+                [
+                    'article:read',
+                ],
+                [
+                    'article:read',
+                    'article:write',
+                ],
+                [
+                    'article:read',
+                    'article:write',
+                ],
+                [
+                    'article:read',
+                ],
+                [
+                    'article:read',
+                ],
+                [
+                    'article:read',
+                ],
+                [
+                    'comment:read',
+                ],
+                [
+                    'article:read',
+                ],
+                [
+                    'article:read',
+                    'article:write',
                 ],
             ],
         ],

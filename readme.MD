@@ -6,7 +6,16 @@
 composer create-project symfony/skeleton api_rest_symfony
 ```
 
-## Depeendancies
+## Dependancies
+
+### Profiler
+
+Le profileur est un outil de développement puissant qui donne des informations détaillées sur l'exécution de toute demande. N'activez jamais le profileur dans les environnements de production car cela entraînerait des vulnérabilités de sécurité majeures dans votre projet.
+
+install :
+```
+composer require --dev symfony/profiler-pack
+```
 
 ### JMSSerializerBundle
 
@@ -48,6 +57,77 @@ install :
 ```
 composer require api
 ```
+
+#### Activer ou désactiver des opérations
+exemple
+```
+<?php
+
+// src/Entity
+
+namespace App\Entity;
+
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ApiResource(
+ *     collectionOperations={"get"},
+ *     itemOperations={"get", "put", "delete"}
+ * )
+ * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
+ */
+class Article
+{
+    // ...
+}
+```
+#### Sérialisation / Désérialisation
+![alt text](docs/SerializerWorkflow.png "Sérialisation / Désérialisation")
+
+#### DataPersister
+Exemple :
+```
+<?php
+
+// src/DataPersister
+
+namespace App\DataPersister;
+
+use ApiPlatform\Core\DataPersister\ContextAwareDataPersisterInterface;
+
+class ArticleDataPersister implements ContextAwareDataPersisterInterface
+{
+    public function supports($data, array $context = []): bool
+    {
+        // TODO: Implement supports() method.
+    }
+
+    public function persist($data, array $context = [])
+    {
+        // TODO: Implement persist() method.
+    }
+
+    public function remove($data, array $context = [])
+    {
+        // TODO: Implement remove() method.
+    }
+}
+```
+
+supports — cette méthode défini si ce persister supporte l'entité. Au fait c'est cette méthode qui dira si ce persister est pour l'entité Article ou pas
+
+persist — cette méthode va créer ou modifier les données, c'est donc cette méthode qui sera appelée à chaque opération POST, PUT ou PATCH
+
+remove — cette méthode sera appelée pour l'opération DELETE
+
+#### String 
+
+Le composant String fournit une API orientée objet unique pour travailler avec trois «systèmes unitaires» de chaînes: octets, points de code et clusters de graphèmes.
+
+```
+composer require symfony/string
+````
 
 ### MakerBundle
 
